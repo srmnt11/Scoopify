@@ -1,0 +1,7 @@
+{
+  "name": "ice-cream-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
