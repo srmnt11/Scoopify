@@ -1,2 +1,11 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+// Primary color
+:root {
+  --ion-font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Roboto, sans-serif;
+  --ion-color-primary: var(--ion-color-danger);  
+  --ion-color-primary-rgb: 255, 0, 0;  
+  --ion-color-primary-contrast: #ffffff;  
+  --ion-color-primary-shade: #cc0000;  
+  --ion-color-primary-tint: #ff3333;  
+}

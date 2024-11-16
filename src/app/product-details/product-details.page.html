@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ product?.name }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="product">
+    <img [src]="product.image" alt="{{ product.name }}" />
+    <ion-card-header>
+      <ion-card-title>{{ product.name }}</ion-card-title>
+      <ion-card-subtitle>₱{{ product.price }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ product.description }}</p> 
+      <!-- Add the Add to Cart button with conditional logic -->
+      <ion-button expand="block" (click)="addToCart()" [disabled]="isAddedToCart()" >
+        {{ isAddedToCart() ? 'Added' : 'Add to Cart' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

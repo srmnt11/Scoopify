@@ -35,3 +35,36 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+:root {
+    --ion-color-orange: #FF5722;  /* Define custom orange color */
+  }
+
+/* src/global.scss */
+.custom-splash-loading {
+  --background: rgba(255, 255, 255, 1); /* Full white background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-container {
+  background-color: white; /* White background for alert-like appearance */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-logo {
+  height: 100px;
+  width: auto;
+  margin-bottom: 0px; /* Space between logo and spinner */
+}
+
+.splash-spinner {
+  color: #d9230f; /* Adjust color of the spinner if needed */
+}

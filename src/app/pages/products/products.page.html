@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img src="assets/img/scoopify-logo.png" alt="Ice Cream Logo" style="height: 80px; width: auto;" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="featured-header">
+    <h1>Products</h1>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <!-- Loop through the products array and display each product -->
+      <ion-col size="6" size-md="4" *ngFor="let product of products">
+        <ion-card class="product-card">
+          <img [src]="product.image" alt="{{ product.name }}" class="product-image"/>
+          <ion-card-header>
+            <ion-card-title>₱{{ product.price }}</ion-card-title>
+            <ion-card-subtitle>{{ product.name }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content class="product-content">
+            <div class="product-details">
+              <!-- Change the button text or disable it based on whether the product is added to the cart -->
+              <ion-button 
+                *ngIf="!isAddedToCart(product)" 
+                expand="block" 
+                (click)="addToCart(product)">
+                Add To Cart
+              </ion-button>
+              <ion-button 
+              *ngIf="isAddedToCart(product)" 
+              expand="block" 
+              disabled>
+              Added 
+            </ion-button>
+            <ion-button 
+            expand="block" class="see-product" 
+            (click)="openProductDetails(product)">
+            See Details
+          </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

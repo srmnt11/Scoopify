@@ -1,0 +1,90 @@
+ion-card {
+  margin-bottom: 10px;
+}
+
+.featured-products {
+  margin-top: 20px;
+}
+
+.categories ion-card {
+  cursor: pointer;
+}
+
+.offers {
+  margin-top: 20px;
+}
+
+ion-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: green;
+}
+
+ion-card-subtitle {
+  font-size: 1rem;
+  color: var(--ion-color-dark);
+}
+
+.featured-header {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+ion-button {
+  font-size: clamp(0.8em, 3vw, 1em);
+  padding: clamp(8px, 2vw, 12px);
+  align-items: center;
+  height: auto; /* Let the button height adjust automatically */
+  min-height: 50px; /* Optional: minimum height if you want consistency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0; /* Remove margin to make it responsive */
+}
+
+/* New CSS for centering content */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+ion-card-header {
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+ion-button[expand='block'] {
+  width: 100%; /* Ensure the button fills the entire width */
+  height: auto; /* Let the button's height adjust based on its content */
+}
+
+.featured-category ion-card-title {
+  color: black; /* Replace with your desired color */
+  font-weight: bold; /* Optional: make the text bold */
+  font-size: 1.2em; /* Optional: adjust the font size */
+}
+
+.title-offer ion-card-title {
+  color: black; /* Replace with your desired color */
+  font-weight: bold; /* Optional: make the text bold */
+  font-size: 1.2em; /* Optional: adjust the font size */
+}
+
+.categories img {
+  width: 100%;
+  height: 150px; /* Adjust height as needed */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+
+}

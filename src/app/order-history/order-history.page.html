@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/img/scoopify-logo.png" alt="Ice Cream Logo" style="height: 80px; width: auto;" />
+    </ion-title>
+    <!-- Clear Order History Button (Disabled when no orders) -->
+    <ion-buttons slot="end">
+      <ion-button (click)="clearOrderHistory()" [disabled]="orderHistory.length === 0">
+        Clear History
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="order-history-container">
+    <!-- Check if there are no orders -->
+    <ng-container *ngIf="orderHistory.length === 0; else orderList">
+      <div class="no-orders">
+        <ion-icon name="cart-outline" size="large"></ion-icon>
+        <p>You do not have any orders</p>
+      </div>
+    </ng-container>
+
+    <!-- Order list -->
+    <ng-template #orderList>
+      <ion-list>
+        <ion-item *ngFor="let order of orderHistory">
+          <ion-label>
+            <h2>Order Date: {{ order.date }}</h2>
+            <p>Total: ₱{{ order.total }}</p>
+            <ion-list>
+              <ion-item *ngFor="let item of order.items">
+                <ion-label>{{ item.productName }} - {{ item.quantity }} x ₱{{ item.price }}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ng-template>
+  </div>
+</ion-content>

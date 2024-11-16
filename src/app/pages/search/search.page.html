@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img src="assets/img/scoopify-logo.png" alt="Ice Cream Logo" style="height: 80px; width: auto;" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Search Bar -->
+  <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="searchProducts()" debounce="500" placeholder="Search for products..."></ion-searchbar>
+
+  <!-- Product List -->
+  <ion-list>
+    <ion-item *ngFor="let product of filteredProducts">
+      <ion-thumbnail slot="start">
+        <img [src]="product.image" alt="{{ product.name }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ product.name }}</h2>
+        <p>₱{{ product.price }}</p>
+      </ion-label>
+      <ion-button fill="clear" (click)="viewProductDetails(product.id)">
+        <ion-icon name="search" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- No Results Message -->
+  <ion-item *ngIf="filteredProducts.length === 0">
+    <ion-label>No results found</ion-label>
+  </ion-item>
+</ion-content>

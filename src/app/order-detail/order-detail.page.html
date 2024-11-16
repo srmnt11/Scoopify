@@ -1,0 +1,25 @@
+<!-- src/app/pages/order-detail/order-detail.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Order #{{ order?.orderId }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="order">
+    <ion-card-header>
+      <ion-card-title>Total: ₱{{ order.totalAmount }}</ion-card-title>
+      <ion-card-subtitle>Date: {{ order.date }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let item of order.items">
+          <ion-label>
+            <h2>{{ item.name }} ({{ item.quantity }})</h2>
+            <p>₱{{ item.price }} each</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
