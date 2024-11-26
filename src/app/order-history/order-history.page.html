@@ -1,15 +1,16 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+      <ion-title>Order History</ion-title>
     </ion-buttons>
     <ion-title>
-      <img src="assets/img/scoopify-logo.png" alt="Ice Cream Logo" style="height: 80px; width: auto;" />
+
     </ion-title>
     <!-- Clear Order History Button (Disabled when no orders) -->
     <ion-buttons slot="end">
       <ion-button (click)="clearOrderHistory()" [disabled]="orderHistory.length === 0">
-        Clear History
+        <ion-icon name="trash-bin-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

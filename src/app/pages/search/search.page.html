@@ -1,16 +1,6 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      <img src="assets/img/scoopify-logo.png" alt="Ice Cream Logo" style="height: 80px; width: auto;" />
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <!-- Search Bar -->
+  <div class="page-content">
   <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="searchProducts()" debounce="500" placeholder="Search for products..."></ion-searchbar>
-
-  <!-- Product List -->
   <ion-list>
     <ion-item *ngFor="let product of filteredProducts">
       <ion-thumbnail slot="start">
@@ -30,4 +20,5 @@
   <ion-item *ngIf="filteredProducts.length === 0">
     <ion-label>No results found</ion-label>
   </ion-item>
+</div>
 </ion-content>

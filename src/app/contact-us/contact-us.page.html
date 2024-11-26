@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Contact Us</ion-title>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="contact-us-page">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Contact Us</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="form-container">
+    <!-- Get in Touch Section -->
+    <div class="intro-text">
+      <img src="assets/operator.png" alt="Logo" class="logo" />
+      <h2>Get in Touch</h2>
+      <p>If you have any concerns or inquiries, don't hesitate to reach us. We'd love to hear from you!</p>
+    </div>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <!-- Name Input -->
+      <ion-item lines="none">
+        <ion-input type="text" formControlName="name" placeholder="Enter your name" fill="solid"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid">
+        <p>* Name is required.</p>
+      </ion-text>
+
+      <!-- Email Input -->
+      <ion-item lines="none">
+        <ion-input type="email" formControlName="email" placeholder="Enter your email" fill="solid"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+        <p>* A valid email is required.</p>
+      </ion-text>
+
+      <!-- Subject Input -->
+      <ion-item lines="none">
+        <ion-input type="text" formControlName="subject" placeholder="Enter the subject" fill="solid"></ion-input>
+      </ion-item>
+
+      <!-- Message Input -->
+      <ion-item lines="none">
+        <ion-textarea formControlName="message" placeholder="Enter your message" fill="solid"></ion-textarea>
+      </ion-item>
+      <ion-text color="danger" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid">
+        <p>* Message is required.</p>
+      </ion-text>
+
+      <!-- Submit Button -->
+      <ion-button expand="block" type="submit" [disabled]="contactForm.invalid" color="primary">
+        Submit
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+.page-content{
+  margin-top: 60px;
+}
+.empty-orders {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack the icon and text vertically */
+  text-align: center; /* Ensure the text is centered */
+  height: 100vh; /* Make the empty-orders div take full height of the screen */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.empty-icon {
+  font-size: 64px; /* Adjust the size of the icon */
+  margin-bottom: 10px; /* Space between icon and text */
+  color: #666;
+}
+
+.ppp {
+  font-size: 18px;
+  color: #666; /* Adjust color for better readability */
+}

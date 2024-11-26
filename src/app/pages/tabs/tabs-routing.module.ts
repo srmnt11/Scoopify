@@ -1,4 +1,3 @@
-// src/app/pages/tabs/tabs-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -25,8 +24,8 @@ const routes: Routes = [
         loadChildren: () => import('../cart/cart.module').then(m => m.CartPageModule),
       },
       {
-        path: 'profile',
-        loadChildren: () => import('../profile/profile.module').then(m => m.ProfilePageModule),
+        path: 'orders',
+        loadChildren: () => import('../orders/orders.module').then(m => m.OrdersPageModule),
       },
       {
         path: '',

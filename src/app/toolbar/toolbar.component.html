@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Button to toggle the side menu -->
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/img/scoopify-logo.png" alt="Logo" class="logo" />
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToContactUs()"> <!-- Link the function here -->
+        <ion-icon slot="icon-only" name="call-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" menuId="main-menu" contentId="main-content">
+  <ion-content>
+    <div *ngIf="isAuthenticated(); else notLoggedInContent" class="profile-container">
+      <!-- Profile Icon -->
+      <ion-icon name="person-circle" class="profile-icon"></ion-icon>
+      <ion-button (click)="editProfile()" fill="clear" color="danger" class="edit-button">
+        <ion-icon name="pencil" slot="start"></ion-icon>
+        Change Account Name
+      </ion-button>
+
+      <!-- User Info -->
+      <div class="profile-info">
+        <ion-item lines="none" class="info-item">
+          <ion-input [(ngModel)]="userProfile.name" [disabled]="!isEditing" label="Account Name" label-placement="floating" fill="solid"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="info-item">
+          <ion-input [(ngModel)]="userProfile.email" [disabled]="true" label="Account Email" label-placement="floating" fill="solid"></ion-input>
+        </ion-item>
+      </div>
+
+      <!-- Save Changes -->
+      <div *ngIf="isEditing" class="action-container">
+        <ion-button expand="block" color="primary" (click)="saveProfile()">Save Changes</ion-button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-container">
+        <ion-button expand="block" color="secondary" (click)="viewOrderHistory()">View Order History</ion-button>
+        <ion-button expand="block" color="danger" (click)="presentLogoutAlert()">Log Out</ion-button>
+      </div>
+    </div>
+
+    <!-- Unauthenticated Content -->
+    <ng-template #notLoggedInContent>
+      <div class="profile-container2">
+        <ion-icon name="person-circle" class="profile-icon"></ion-icon>
+        <p class="not-logged-in-text">You are not logged in.</p>
+        <ion-button expand="block" color="primary" (click)="goToLoginPage()">Login</ion-button>
+      </div>
+    </ng-template>
+  </ion-content>
+</ion-menu>

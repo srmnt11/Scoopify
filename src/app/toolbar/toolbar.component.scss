@@ -1,0 +1,69 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  height: 100vh; /* Set the height to the full viewport height */
+  margin: 0; /* Remove margin for proper centering */
+}
+
+.profile-icon {
+  font-size: 80px;
+  color: var(--ion-color-primary);
+  margin-bottom: 10px;
+}
+
+.edit-button {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.profile-info {
+  width: 90%; /* Ensure inputs fit properly within the sidebar */
+  margin-top: 20px;
+}
+
+.info-item {
+  margin-bottom: 10px;
+}
+
+.info-input {
+  background-color: var(--ion-color-light);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.action-container {
+  width: 90%;
+  margin-top: 20px;
+}
+
+ion-button {
+  --border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.labeled {
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 100px; /* Set desired width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 40px; /* Ensure it fits within the toolbar height */
+  display: block;
+  margin: 0 auto; /* Center the logo if needed */
+}
+
+.profile-container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  height: 100vh; /* Set the height to the full viewport height */
+  margin: 0; /* Remove margin for proper centering */
+}
+
+

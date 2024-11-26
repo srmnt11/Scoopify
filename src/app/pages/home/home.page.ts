@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router'; 
+import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
 import { Product } from 'src/app/models/product.model';
 
@@ -9,7 +7,14 @@ import { Product } from 'src/app/models/product.model';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+
+  menuTitle ='/assets/img/scoopify-logo.png';
+  menuContent = '';
+  pageTitle = '/assets/img/scoopify-logo.png';
+  pageContent = 'Welcome to the home page.';
+
+  
   featuredProducts: Product[] = [
     { id: 2, name: 'Strawberry', price: 110, image: 'assets/img/strawberry.jpg', description: 'Fresh, fruity strawberry ice cream made with real strawberries.'},
   ];
@@ -65,4 +70,7 @@ export class HomePage {
 
     await alert.present();
   }
+
+  ngOnInit() {}
+
 }

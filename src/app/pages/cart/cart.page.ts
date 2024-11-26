@@ -12,7 +12,9 @@ export class CartPage implements OnInit {
   cartItems: { product: Product, quantity: number }[] = [];
   totalPrice: number = 0;
 
-  constructor(private cartService: CartService, private navCtrl: NavController, private alertController: AlertController) {}
+  constructor(private cartService: CartService, 
+              private navCtrl: NavController, 
+              private alertController: AlertController) {}
 
   ngOnInit() {
     // Subscribe to cart updates

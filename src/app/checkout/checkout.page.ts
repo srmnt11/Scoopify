@@ -11,6 +11,15 @@ import { NavController, AlertController } from '@ionic/angular';
 export class CheckoutPage implements OnInit {
   cartItems: { product: Product, quantity: number }[] = [];
   totalPrice: number = 0;
+  deliveryCharge: number = 20; // Example delivery charge
+  selectedPaymentMethod: string = ''; // Store selected payment method
+  userInfo = { name: '', address: '', contactNumber: '' }; // Store user info
+  creditCardDetails = { 
+    cardholderName: '', 
+    cardNumber: '', 
+    expirationDate: '', 
+    cvc2: '' 
+  }; 
 
   constructor(
     private cartService: CartService, 
@@ -26,17 +35,73 @@ export class CheckoutPage implements OnInit {
     });
   }
 
+  // Handle payment method change
+  onPaymentMethodChange() {
+    // Reset credit card details when payment method changes
+    if (this.selectedPaymentMethod !== 'creditCard') {
+      this.creditCardDetails = { 
+        cardholderName: '', 
+        cardNumber: '', 
+        expirationDate: '', 
+        cvc2: '' 
+      };
+    }
+  }
+
   // Confirm the checkout and process the order
   async confirmCheckout() {
+    // Validate user information and payment method
+    if (!this.userInfo.name || !this.userInfo.address || !this.userInfo.contactNumber) {
+      const alert = await this.alertController.create({
+        header: 'Missing Information',
+        message: 'Please fill in all required fields.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
+    if (!this.selectedPaymentMethod) {
+      const alert = await this.alertController.create({
+        header: 'Payment Method Required',
+        message: 'Please select a payment method.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
+    if (this.selectedPaymentMethod === 'creditCard') {
+      if (!this.creditCardDetails.cardholderName || 
+          !this.creditCardDetails.cardNumber || 
+          !this.creditCardDetails.expirationDate || 
+          !this.creditCardDetails.cvc2) {
+        const alert = await this.alertController.create({
+          header: 'Credit Card Information Required',
+          message: 'Please fill in all credit card details.',
+          buttons: ['OK']
+        });
+        await alert.present();
+        return;
+      }
+    }
+
+    // Calculate the final price (including delivery charge)
+    const finalTotal = this.totalPrice + this.deliveryCharge;
+
     // Save the order to history
     const order = {
       date: new Date().toISOString(),
-      total: this.totalPrice,
+      total: finalTotal,
       items: this.cartItems.map(item => ({
         productName: item.product.name,
         quantity: item.quantity,
         price: item.product.price,
       })),
+      paymentMethod: this.selectedPaymentMethod,
+      userInfo: this.userInfo, // Include user details
+      deliveryCharge: this.deliveryCharge,
+      creditCardDetails: this.selectedPaymentMethod === 'creditCard' ? this.creditCardDetails : null,
     };
 
     // Add to order history

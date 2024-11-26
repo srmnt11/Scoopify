@@ -6,3 +6,15 @@ p {
     color: green;
     font-weight: bold;
 }
+.title-image {
+    height: 80px; /* Adjust based on toolbar height */
+    width: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Ensure it doesn't exceed toolbar height */
+    object-fit: contain; /* Prevent distortion */
+    margin: contain; /* Center the image if needed */
+    display: block; /* Ensure the image is treated as a block-level element */
+  }
+
+.page-content {
+    padding-top: 60px; /* Adjust according to your toolbar height */
+  }

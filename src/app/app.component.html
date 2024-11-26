@@ -1,4 +1,4 @@
 <ion-app>
-  <ion-router-outlet [@routeAnimations]="prepareRoute"></ion-router-outlet>
-
+  <app-toolbar *ngIf="showToolbar"></app-toolbar>
+  <ion-router-outlet id="main-content" [@routeAnimations]="prepareRoute"></ion-router-outlet>
 </ion-app>

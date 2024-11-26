@@ -43,20 +43,32 @@
 /* src/global.scss */
 .custom-splash-loading {
   --background: rgba(255, 255, 255, 1); /* Full white background */
+  position: fixed; /* Ensure the loading screen is fixed to the entire screen */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 9999; /* Ensure it's on top of other content */
 }
 
 .splash-container {
-  background-color: white; /* White background for alert-like appearance */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  background: rgba(255, 255, 255, 1);  /* Full white background */
+  position: fixed; /* Ensure it covers the entire screen */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  z-index: 9999; /* Ensure it's on top of other content */
 }
 
 .splash-logo {

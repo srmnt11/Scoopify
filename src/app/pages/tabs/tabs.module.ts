@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
   imports: [
     IonicModule,
     CommonModule,
-    TabsPageRoutingModule  // Make sure this is here
+    TabsPageRoutingModule  
   ],
   declarations: [TabsPage],
 })

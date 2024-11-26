@@ -1,40 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      <img src="assets/img/scoopify-logo.png" alt="Ice Cream Logo" style="height: 80px; width: auto;" />
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <!-- Check if the cart is empty -->
   <div *ngIf="cartItems.length === 0" class="empty-cart">
     <ion-icon name="cart-outline" class="empty-cart-icon"></ion-icon>
     <p class="empty-product">Your cart is empty.</p>
     <ion-button expand="block" color="danger" (click)="goToProducts()">Shop Now</ion-button>
   </div>
-
-  <ion-list *ngIf="cartItems.length > 0">
-    <ion-item *ngFor="let item of cartItems">
-      <ion-thumbnail slot="start">
-        <img [src]="item.product.image" alt="{{ item.product.name }}">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ item.product.name }}</h2>
-        <p>₱{{ item.product.price }} x {{ item.quantity }}</p>
-      </ion-label>
-      <ion-button (click)="decreaseQuantity(item.product.id)">-</ion-button>
-      <ion-button (click)="increaseQuantity(item.product.id)">+</ion-button>
-      <ion-button (click)="removeItemAlert(item.product.id)" color="danger">Remove</ion-button>
-    </ion-item>
-  </ion-list>
-
-  <ion-button expand="full" color="danger" (click)="clearCartAlert()" *ngIf="cartItems.length > 0">Clear Cart</ion-button>
+  <div class="page-content">
+    <ion-list *ngIf="cartItems.length > 0">
+      <ion-item *ngFor="let item of cartItems">
+        <ion-thumbnail slot="start">
+          <img [src]="item.product.image" alt="{{ item.product.name }}">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ item.product.name }}</h2>
+          <p>₱{{ item.product.price }} x {{ item.quantity }}</p>
+        </ion-label>
+        <ion-button (click)="decreaseQuantity(item.product.id)">-</ion-button>
+        <ion-button (click)="increaseQuantity(item.product.id)">+</ion-button>
+        <ion-button (click)="removeItemAlert(item.product.id)" color="secondary">Remove</ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="cartbutton">
+    <ion-button expand="block" color="secondary" (click)="clearCartAlert()" *ngIf="cartItems.length > 0">Clear Cart</ion-button>
+  </div>
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="cartItems.length > 0"> <!-- Footer is conditionally shown -->
   <ion-item lines="none">
-    <ion-label *ngIf="cartItems.length > 0">Total: ₱{{ totalPrice }}</ion-label>
-    <ion-button expand="full" color="primary" (click)="goToCheckout()" *ngIf="cartItems.length > 0">Proceed to Checkout</ion-button>
+    <ion-label class="price">Total: ₱{{ totalPrice }}</ion-label>
+    <ion-button expand="block" color="danger" (click)="goToCheckout()">Proceed to Checkout</ion-button>
   </ion-item>
 </ion-footer>
+

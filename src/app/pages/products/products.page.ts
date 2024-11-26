@@ -12,6 +12,12 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./products.page.scss'],
 })
 export class ProductsPage implements OnInit {
+
+  menuTitle ='/assets/img/scoopify-logo.png';
+  menuContent = '';
+  pageTitle = '/assets/img/scoopify-logo.png';
+  pageContent = 'Welcome to the home page.';
+
   products: Product[] = [
     { id: 1, name: 'Caramel', price: 120, image: 'assets/img/saltedcaramel.jpg', description: 'A rich, creamy caramel ice cream with a hint of sea salt.'},
     { id: 2, name: 'Strawberry', price: 110, image: 'assets/img/strawberry.jpg', description: 'Fresh, fruity strawberry ice cream made with real strawberries.'},
@@ -103,4 +109,6 @@ export class ProductsPage implements OnInit {
   isAddedToCart(product: Product): boolean {
     return this.addedToCart.has(product.id);
   }
+
+  
 }

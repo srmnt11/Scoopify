@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'privacy',
     loadChildren: () => import('./pages/privacy/privacy.module').then( m => m.PrivacyPageModule)
-  }
+  },  {
+    path: 'contact-us',
+    loadChildren: () => import('./contact-us/contact-us.module').then( m => m.ContactUsPageModule)
+  },
+
 ];
 
 @NgModule({

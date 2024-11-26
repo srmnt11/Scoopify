@@ -1,0 +1,39 @@
+.contact-us-page {
+    .form-container {
+      padding: 16px;
+    }
+  
+    ion-item {
+      margin-bottom: 12px;
+    }
+  
+    ion-textarea {
+      min-height: 120px;
+    }
+  
+    ion-text {
+      font-size: 12px;
+      margin-left: 16px;
+    }
+  }
+  
+  .intro-text {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .intro-text h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .intro-text p {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  .logo {
+    width: 80px;
+    height: auto;
+  }

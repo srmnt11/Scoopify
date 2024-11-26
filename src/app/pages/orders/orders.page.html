@@ -1,0 +1,32 @@
+<ion-content>
+  <div class="page-content">
+    <div *ngIf="orders.length === 0" class="empty-orders">
+      <ion-icon name="receipt-outline" class="empty-icon"></ion-icon>    
+      <p class="ppp">You have no orders yet.</p>     
+    </div>
+
+    <ion-list *ngIf="orders.length > 0">
+      <ion-item *ngFor="let order of orders">
+        <ion-label>
+          <h2>Order Date: {{ order.date | date: 'short' }}</h2>
+          <ion-text>
+            <ul>
+              <li *ngFor="let item of order.items">
+                {{ item.quantity }}x {{ item.productName }} - ₱{{ item.price }}
+              </li>
+            </ul>
+          </ion-text>
+          <p>Total: ₱{{ order.total }}</p>
+        </ion-label>
+        
+        <!-- Conditionally render button text based on isReceived -->
+        <ion-button 
+          color="primary" 
+          (click)="confirmOrderReceived(order)"
+          [disabled]="order.isReceived">
+          {{ order.isReceived ? 'Order Received' : 'Receive Order' }}
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

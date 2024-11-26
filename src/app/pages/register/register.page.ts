@@ -21,6 +21,10 @@ export class RegisterPage {
     this.passwordVisible = !this.passwordVisible;
   }
 
+  navigateToHome() {
+    this.router.navigate(['/tabs/home']);
+  }
+
   // Register user
   register() {
     if (!this.name || !this.email || !this.password) {

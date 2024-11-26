@@ -1,37 +1,85 @@
- ion-icon {
-    cursor: pointer;
-  }
-  
-  /* Add this CSS to align the form elements */
-ion-content {
-  --padding-top: 40px;
-  --padding-bottom: 40px;
-}
-
+/* Logo Container */
 .logo-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .logo {
-  width: 80px;
+  width: 150px;
   height: auto;
 }
 
+/* Form Container */
 .form-container {
-  max-width: 400px;
-  margin: 0 auto;
+  margin: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.error-message {
-  color: red;
-  font-size: 12px;
-  padding-left: 15px;
-}
-.message {
-  color: green;
-  font-size: 14px;
-  padding: 10px;
+.form-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
 }
 
+.form-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Error Messages */
+.error-message,
+ion-text[color='danger'] {
+  font-size: 0.85rem;
+  color: #e74c3c;
+  margin-left: 16px;
+  margin-top: 5px;
+}
+
+/* Register Link */
+.register-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Button Styles */
+ion-button {
+  margin-top: 20px;
+}
+
+.home-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.home-icon {
+  color: #cc0000;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.home-icon:hover {
+  transform: scale(1.2);
+}
+
+.registercenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    text-align: center;
+    height: 100vh; /* Set the height to the full viewport height */
+    margin: 0; /* Remove margin for proper centering */ 
+}

@@ -20,6 +20,9 @@ export class LoginPage {
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
+  navigateToHome() {
+    this.router.navigate(['/tabs/home']);
+  }
 
   // Login user
   login() {
@@ -36,5 +39,7 @@ export class LoginPage {
         this.router.navigate(['/tabs/home']); // Redirect to home page or dashboard
       }, 1000); // Delay for user to see the message
     }
+
+    
   }
 }
